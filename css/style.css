@@ -1,0 +1,238 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: sans-serif;
+    /* color: #1c1c1d; */
+}
+
+body {
+    display: block;
+    margin: auto;
+    width: 100%;
+    position: relative;
+    background-color: #2a2b2c;
+}
+
+.container-principal, .container-form  {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: #2a2b2c;
+}
+
+.container-principal {
+    width: 100%;
+    height: 85vh;
+}
+
+.container-form {
+    /* display: ; */
+    background-color: #0080ED;
+    width: 500px;
+    height: 400px;
+    border: 1px solid;
+    border-radius: 10px;
+}
+
+form {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    flex-direction: column;
+    margin-left: 1rem;
+    width: 100%;
+    height: 100%;
+}
+
+.div-campo {
+    display: flex;
+    align-items: center;
+    width: 90%;
+}
+
+.div-label {
+    width: 16%;
+}
+
+.div-input {
+    /* background-color: #07b61f; */
+    width: 80%;
+}
+
+input {
+    height: 2rem;
+    font-size: 1rem;
+    border-radius: 20px;
+    padding: 0 10px;
+    border: none;
+}
+
+input[name="nome"], input[name="setor"] {
+    width: 100%;
+}
+
+span {
+    font-size: .8rem;
+}
+
+.container-button {
+    display: flex;
+    justify-content: center;
+    margin-left: -.5rem;
+    width: 100%;
+}
+
+.container-visualizador {
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    width: 630px;
+    height: 150px;
+    background-image: url("../img/Assinatura-de-e-mail-Grupo-Dedé-Maio.png");
+    /* background-size: 100%; */
+    /* background-repeat: no-repeat; */
+}
+
+.container-visualizador-central {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: flex-end;
+    height: 70%;
+    min-width: 300px;
+    gap: .7rem;
+    margin: -2.5rem .5rem 0;
+    /* background-color: #c40765; */
+}
+
+.container-texto, .container-numero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    min-width: 180px;
+    /* background-color: #07b61f; */
+}
+
+.container-icons-telefone, .container-icons-celular {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center ;
+    font-size: .9rem;
+    /* width: 170px; */
+}
+
+.visualiza-setor {
+    font-size: .6rem;
+}
+
+
+button {
+    width: 150px;
+    padding: 10px;
+    border-radius: 20px;
+    border: none;
+    background-color: #fff;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+svg {
+    height: 14px;
+    border-radius: 30%;
+}
+
+.hide-cel, .hide-tel {
+    display: none;
+}
+
+.footer-principal {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 15vh;
+    /* background-color: #202327; */
+    border-top: #424446 solid 1px;
+    background-color: 2a2b2c;
+    color: #ffffff9c;
+
+}
+
+
+/* List Dinamic */
+
+
+.ul-menu-dinamic {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    /* background-color: #35022b; */
+}
+
+
+.item-list-dinamic {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.div-card-dinamic-container {
+    display: flex;
+    height: 40px;
+    width: 80px;
+    margin-top: 5px;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(6px);
+    border-radius: 5px;
+    background-color: rgba(212, 203, 203, 0.2);
+    border-radius: .7rem;
+    z-index: 2;
+    
+}
+
+.div-card-dinamic-text {
+    position: relative;
+    padding: .3rem;
+    transform: translateY(15px);
+    bottom: 23px;
+    border-radius: 5px;
+    background-color: rebeccapurple;
+    transition: z-index 1.5s, bottom 1.5s, transform 0.5s, box-shadow 1.5s;
+    z-index: 1;
+}
+
+.item-list-dinamic:nth-child(1) .div-card-dinamic-text {
+    background-color: #2793db;
+    box-shadow: 0 -10px 10px #2793db;
+    /* background-color: #f560da; */
+}
+
+.item-list-dinamic:nth-child(2) .div-card-dinamic-text {
+    background-color: #c40765;
+    box-shadow: 0 -10px 10px #c40765;
+}
+
+.item-list-dinamic:nth-child(3) .div-card-dinamic-text {
+    background-color: #07b61f;
+    box-shadow: 0 -10px 10px #07b61f;
+}
+
+/* .div-card-dinamic-container:hover  */
+.item-list-dinamic:hover .div-card-dinamic-text {
+    cursor: pointer;
+    transform: translateY(-50px); /* Levanta o texto*/
+    bottom: -15px;
+    transition: bottom 0.5s, transform 1.5s, z-index 1.5s,  box-shadow 1s;
+    /* transition:  z-index 3s, transform 1s bottom 2s; */
+    box-shadow: 0px 0px;
+    z-index: 3;
+}
+
+/* End  */
