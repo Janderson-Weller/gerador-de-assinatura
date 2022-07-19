@@ -1,5 +1,4 @@
 import html2canvas from '../node_modules/html2canvas/dist/html2canvas.esm.js';
-
 "use strict";
 
 const names = document.querySelector(".nome");
@@ -219,13 +218,13 @@ const insereNumero = (idNome, classNome, classRemoveElement, tipoInput, visualiz
 const gerarImagem = () => {
     const downloadClick = document.querySelector(".download");
     imagemButton.addEventListener("click", e => {
-        if(telefoneInner.textContent.length !== 14 || celularInner.textContent.length !== 15) {
-            alert("Verifique os dados de contato! Eles não estão completos.")
-            e.preventDefault();
-            return;
-        }
+        // if(telefoneInner.textContent.length !== 14 || celularInner.textContent.length !== 15) {
+        //     alert("Verifique os dados de contato! Eles não estão completos.")
+        //     e.preventDefault();
+        //     return;
+        // }
 
-        if(!verificaInput("campo-nome") && !verificaInput("campo-setor") && !verificaInput("campo-telefone") && !verificaInput("campo-celular")) {
+        if(!verificaInput("campo-nome") && !verificaInput("campo-setor")/*  && !verificaInput("campo-telefone") && !verificaInput("campo-celular") */) {
                 e.preventDefault();
                 html2canvas(document.querySelector(".container-visualizador")).then(function(canvas) {
                 downloadClick.href = canvas.toDataURL("image/png");
@@ -235,7 +234,7 @@ const gerarImagem = () => {
             });
         }
         else {
-            alert("Todos os campos são obrigatórios.");
+            alert("Campos nome e setor são obrigatórios.");
         }
         
     })
