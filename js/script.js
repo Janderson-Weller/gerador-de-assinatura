@@ -21,14 +21,16 @@ const teclasPermitidas = (key) => {
     const teclas = {
         1: 'ArrowLeft',
         2: 'ArrowRight',
-        3: 'Tab',
-        4: 'Control',
-        5: 'Alt',
-        6: 'Home',
-        7: 'End',
-        8: 'Shift',
-        9: 'CapsLock',
-        10: 'Dead'
+        3: 'ArrowUp',
+        4: 'ArrowDown',
+        5: 'Tab',
+        6: 'Control',
+        7: 'Alt',
+        8: 'Home',
+        9: 'End',
+        10: 'Shift',
+        11: 'CapsLock',
+        12: 'Dead'
     }
 
     for(let i in teclas) {
@@ -71,8 +73,10 @@ const removeCaracter = (key, nameElement) => {
 
 const editaTexto = (nomeCampo, visualizaCampo) => {
     nomeCampo.addEventListener("keydown", (e)=> {
-        document.onmouseup = algumTextoSelecionado(visualizaCampo);
-        document.onkeyup = algumTextoSelecionado(visualizaCampo);
+        if(!teclasPermitidas(e.key))
+            nomeCampo.onmouseup = algumTextoSelecionado(visualizaCampo, e.key);
+
+        // document.onkeyup = algumTextoSelecionado(visualizaCampo);
         if(teclasPermitidas(e.key) || verificaLetras(e.key) || e.key === ' ')
             insereCaracter(e.key, visualizaCampo);
         else if(e.key === "Backspace")
@@ -84,28 +88,53 @@ const editaTexto = (nomeCampo, visualizaCampo) => {
     });
 }
 
+
 const removeTextoSelecionado = (Element, texto) => {
     const a = Element.textContent;
     Element.innerHTML = a.replace(texto.toUpperCase(), " ");
 
 }
 
-function algumTextoSelecionado(Element) {
+const algumTextoSelecionado = (ElementInner, e) => {
     var texto = "";
-    
+           
     if (typeof window.getSelection != "undefined")
         texto = window.getSelection().toString();
     else if (typeof document.selection != "undefined" && document.selection.type == "Text")
         texto = document.selection.createRange().text;
     
     if (texto.trim()) {
-        let a;
-        a = Element.textContent;
-        Element.innerHTML = a.replace(texto.toUpperCase(), " ");
-        // console.log(texto);
+        console.log(texto);
+        console.log("tecla", e)
+        if(!teclasPermitidas(e.key) || e.key === 'Backspace') {
+            // let a;
+            removeTextoSelecionado(ElementInner, texto)
+            // a = ElementInner.textContent;
+            // ElementInner.innerHTML = a.replace(texto.toUpperCase(), " ");
+        }
         // console.log(window.getSelection().anchorNode.firstElementChild.id)
     }
+
+    // return `texto retornado fi (${texto})`;
+   
+    // if(Element.isTrusted)
+    //     console.log("OOK")
+    // if (typeof window.getSelection != "undefined")
+    //     texto = window.getSelection().toString();
+    // else if (typeof document.selection != "undefined" && document.selection.type == "Text")
+    //     texto = document.selection.createRange().text;
+    
+    // if (texto.trim()) {
+    //     let a;
+    //     a = Element.textContent;
+    //     Element.innerHTML = a.replace(texto.toUpperCase(), " ");
+    //     // console.log(texto);
+    //     // console.log(window.getSelection().anchorNode.firstElementChild.id)
+    // }
 }
+// document.onmouseup = algumTextoSelecionado(names, visualizadorName)
+// console.log(document.onmouseup)
+
 
 
 // const focus = ele => {
