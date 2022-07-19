@@ -112,7 +112,7 @@ const algumTextoSelecionado = (ElementInner, e) => {
             // a = ElementInner.textContent;
             // ElementInner.innerHTML = a.replace(texto.toUpperCase(), " ");
         }
-        // console.log(window.getSelection().anchorNode.firstElementChild.id)
+        console.log(window.getSelection().anchorNode.firstElementChild.id)
     }
 
     // return `texto retornado fi (${texto})`;
